@@ -48,29 +48,29 @@ let Data = {
     })
 
     app.get("/", (req, res) => {
-        res.send(`<h2>Find your Anime</h2> <img src = "https://media1.giphy.com/media/fraFWJOtGih9u/200.webp?cid=ecf05e476shevcbgrlx0m24i4eqbr5ycvhl7ewye4suts0wv&ep=v1_gifs_search&rid=200.webp&ct=g"></img>`);
+        res.status(200).send(`<h2>Find your Anime</h2> <img src = "https://media1.giphy.com/media/fraFWJOtGih9u/200.webp?cid=ecf05e476shevcbgrlx0m24i4eqbr5ycvhl7ewye4suts0wv&ep=v1_gifs_search&rid=200.webp&ct=g"></img>`);
       });
     
       app.get("/docs", (req, res) => {
-        res.send("/romance gives first romance anime and info on it. /mc gives first main character and the anime they belong to. /romance/{index} gives an anime at that index. /mc/{id} gives a mc and there info at that id.");
+        res.status(200).send("/romance gives first romance anime and info on it. /mc gives first main character and the anime they belong to. /romance/{index} gives an anime at that index. /mc/{id} gives a mc and there info at that id.");
       });
 
       app.get("/romance", (req, res) => {
-        res.json(Data.RomanceAnime[0]);
+        res.status(200).json(Data.RomanceAnime[0]);
       });
 
       app.get("/mc", (req, res) => {
-        res.json(Data.mainCharacter[0]);
+        res.status(200).json(Data.mainCharacter[0]);
       });
 
       app.get("/romance/:index", (req, res) => {
         const anime = req.params.index
-        res.send(Data.RomanceAnime[anime])
+        res.status(200).send(Data.RomanceAnime[anime])
       });
 
       app.get("/mc/:id", (req, res) => {
         const mainc = req.params.id
-        res.send(Data.RomanceAnime[mainc])
+        res.status(200).send(Data.RomanceAnime[mainc])
       });
 
 
